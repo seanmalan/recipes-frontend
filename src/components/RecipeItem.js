@@ -12,7 +12,7 @@ const Recipe = () => {
   useEffect(() => {
     const fetchData = async () => {
       
-      const response = await fetch(`http://127.0.0.1:9500/api/recipes/23`);
+      const response = await fetch(`http://127.0.0.1:9500/api/recipes/${id}/`);
       console.log("we have hit the fetch request")
 
       if (response.ok === false) {
@@ -31,7 +31,7 @@ const Recipe = () => {
     return (
       <>
         <p>"Sorry we can not find that recipe!"</p>
-        <Link to={`/`} className="button">
+        <Link to={`/recipes`} className="button">
           Return to recipes
         </Link>
       </>

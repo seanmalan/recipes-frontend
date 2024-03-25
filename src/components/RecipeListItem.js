@@ -12,7 +12,7 @@ const RecipeListItem = ({recipe}) => {
     <h3>
     {recipe.recipe_name}
     </h3>
-    <Link to={`/${recipe.id}`} className="button">Click here for the recipe</Link>
+    <Link to={`/recipes/${recipe.id}`} className="button">Click here for the recipe</Link>
     <p>{recipe.meal_type}</p>
     <p>The cooking time for this meal is: {recipe.time} mins</p>
     

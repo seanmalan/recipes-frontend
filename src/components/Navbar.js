@@ -1,70 +1,61 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   return (
     <div className="navbar-container">
-      {/* <div>
-      <a href="/">Home</a>
-    </div>
-    <div>
-      <a href="/kitchens">Kitchens</a>
-    </div>
-    <div>
-      <a href="/recipes">Recipes</a>
-    </div> */}
 
       <div className="navbar-links">
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
         <div className="dropdown">
-          <a href="#" className="dropbtn">
+          <Link to="#" className="dropbtn">
             Categories
-          </a>
+          </Link>
           <div className="dropdown-content">
-            <a href="/meal-type/breakfast">Breakfast</a>
-            <a href="{% url 'meal-type' query='lunch' %}">Lunch</a>
-            <a href="{% url 'meal-type' query='dinner' %}">Dinner</a>
-            <a href="{% url 'meal-type' query='dessert' %}">Dessert</a>
-            <a href="{% url 'meal-type' query='drink' %}">Drinks</a>
+            <Link to={`/meal-types/breakfast`}>Breakfast</Link>
+            <Link to={`/meal-types/lunch`}>Lunch</Link>
+            <Link to={`/meal-types/dinner`}>Dinner</Link>
+            <Link to={`/meal-types/dessert`}>Dessert</Link>
+            <Link to={`/meal-types/drinks`}>Drinks</Link>
           </div>
         </div>
         <div className="dropdown">
-          <a href="#" className="dropbtn">
+          <Link to="#" className="dropbtn">
             Health & Diet
-          </a>
+          </Link>
           <div className="dropdown-content">
-            <a href="{% url 'meal-type' query='vegan' %}">Vegan</a>
-            <a href="{% url 'meal-type' query='keto' %}">Keto</a>
+            <Link to={``}>Vegan</Link>
+            <Link to={``}>Keto</Link>
           </div>
         </div>
         <div className="dropdown">
-          <a href="#" className="dropbtn">
+          <Link to="#" className="dropbtn">
             Holidays
-          </a>
+          </Link>
           <div className="dropdown-content">
-            <a href="{% url 'meal-type' query='christmas' %}">Christmas</a>
-            <a href="{% url 'meal-type' query='easter' %}">Easter</a>
-            <a href="{% url 'meal-type' query='mothers day' %}">Mother's Day</a>
-            <a href="{% url 'meal-type' query='thanksgiving' %}">
+            <Link to={`/meal-types/christmas`}>Christmas</Link>
+            <Link to={`/meal-types/easter`}>Easter</Link>
+            <Link to={`/meal-types/mothers day`}>Mother`s Day</Link>
+            <Link to={`/meal-types/thanksgiving`}>
               Thanksgiving
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="logIn-container">
         <div className="user-profile-link navbar-links">
-          <a href="{% url 'user-profile' user.id %}">User Profile</a>
+          <Link to="{% url 'user-profile' user.id %}">User Profile</Link>
         </div>
 
         <div className="signed-in">
           {/* <p>Hello {user.username}</p> */}
-          <a href="{% url 'logout' %}">Log out</a>
+          <Link to="{% url 'logout' %}">Log out</Link>
         </div>
 
         <div className="logIn-link">
-          <a href="{% url 'login' %}">Log in</a>
+          <Link to="{% url 'login' %}">Log in</Link>
         </div>
       </div>
     </div>
