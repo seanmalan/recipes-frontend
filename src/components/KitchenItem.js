@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import "./RecipeItem.css"
+import "./KitchenItem.css";
 
-
-const Recipe = () => {
+const Kitchen = () => {
   const { id } = useParams();
-  const [recipe, setrecipe] = useState({});
+  const [kitchen, setkitchen] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isNotFound, setIsNotFound] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      
-      const response = await fetch(`http://127.0.0.1:9500/api/recipes/23`);
-      console.log("we have hit the fetch request")
+      const response = await fetch(``);
 
       if (response.ok === false) {
         setIsNotFound(true);
@@ -21,7 +18,7 @@ const Recipe = () => {
       }
 
       const data = await response.json();
-      setrecipe(data);
+      setkitchen(data);
       setIsLoading(false);
     };
     fetchData();
@@ -30,33 +27,30 @@ const Recipe = () => {
   if (isNotFound) {
     return (
       <>
-        <p>"Sorry we can not find that recipe!"</p>
+        <p>"Sorry we can not find that kitchen!"</p>
         <Link to={`/`} className="button">
-          Return to recipes
+          Return to kitchens
         </Link>
       </>
     );
   }
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <h1>Loading...</h1>;
   }
 
   return (
     <>
-      <div className="recipe-item">
+      <div className="kitchen-item">
         <div>
-          <img src={recipe.image} alt={recipe.name}></img>
-        </div>
-        <div>
-          <h2>{recipe.name}</h2>
-          <p>{recipe.description}</p>
+          <h2>{kitchen.name}</h2>
+          <p>{kitchen.description}</p>
         </div>
       </div>
-      <h2>Reserve {recipe.name}</h2>
+      <h2>Reserve {kitchen.name}</h2>
       <p></p>
     </>
   );
 };
 
-export default Recipe;
+export default Kitchen;
