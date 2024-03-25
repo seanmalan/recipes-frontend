@@ -1,0 +1,11 @@
+
+
+.kitchen-list-item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #d4c70e;
+}
+
+

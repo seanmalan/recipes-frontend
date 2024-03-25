@@ -1,0 +1,19 @@
+
+
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #720606;
+}
+
+.recipe-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
